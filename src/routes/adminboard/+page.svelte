@@ -19,9 +19,13 @@
 			.from('pesanan')
 			.select('*')
 			.order('tid', { ascending: false });
-		if (!error) {
-			pesanan = data;
+
+		if (error) {
+			console.error('Supabase Fetch Error:', error);
+			return;
 		}
+
+		pesanan = data;
 	}
 
 	async function updateStatus(id: number, status: string) {
