@@ -97,7 +97,11 @@
 	</thead>
 	<tbody>
 		{#each pesanan as order}
-			<tr class="border border-neutral-800">
+			<tr
+				class="border border-neutral-800"
+				class:opacity-40={order.status === 'done'}
+				class:opacity-10={order.status === 'canceled'}
+			>
 				<td class="border border-neutral-800 p-2">
 					{#if order.status !== 'canceled' && order.status !== 'done'}
 						<button

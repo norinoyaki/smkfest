@@ -208,7 +208,7 @@
 		<ul class="flex gap-6 w-max" role="list">
 			{#each product as item}
 				<li
-					class="relative w-64 h-82 rounded-xl overflow-hidden shadow-lg flex-shrink-0"
+					class="relative w-64 h-82 rounded-xl overflow-hidden flex-shrink-0 shadow-lg"
 					role="listitem"
 					aria-labelledby={`title-${item.id}`}
 					data-title={item.title}
@@ -234,6 +234,7 @@
 			{/each}
 		</ul>
 	</div>
+	<h1 class="text-2l font-bold text-center mt-12">Geser dan klik menu-nya!</h1>
 </div>
 
 <style>
