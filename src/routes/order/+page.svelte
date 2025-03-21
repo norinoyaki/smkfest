@@ -14,14 +14,12 @@
 		goto('/');
 	}
 
-	const sizes = ['small', 'medium', 'large'];
-	let selectedSize = writable('medium');
 	let quantity = writable(1);
-	let buyerName = writable(''); // New state for buyer name
-	let loading = writable(false); // Track loading state
+	let buyerName = writable('');
+	let loading = writable(false);
 
 	function getPrice() {
-		return product[$selectedSize] * $quantity;
+		return product.price * $quantity;
 	}
 
 	async function addOrder() {
@@ -32,7 +30,7 @@
 				pesanan: product.title,
 				topping: [],
 				kuantitas: $quantity,
-				harga: product[$selectedSize],
+				harga: product.price,
 				total_harga: getPrice(),
 				status: 'pending',
 				nama_pembeli: $buyerName // Adding buyer name to the database
@@ -69,14 +67,6 @@
 				class="p-2 bg-neutral-800 rounded-md w-full"
 				placeholder="Masukkan nama"
 			/>
-		</div>
-		<div class="mt-2">
-			<label class="block mt-4 mb-4">Ukuran:</label>
-			<select bind:value={$selectedSize} class="p-2 bg-neutral-800 rounded-md w-full">
-				{#each sizes as size}
-					<option value={size}>{size.charAt(0).toUpperCase() + size.slice(1)}</option>
-				{/each}
-			</select>
 		</div>
 		<div class="mt-2">
 			<label class="block mt-4 mb-4">Kuantitas:</label>

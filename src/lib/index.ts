@@ -1,1 +1,9 @@
-// place files you want to import through the `$lib` alias in this folder.
+import { writable } from 'svelte/store';
+import { createClient } from '@supabase/supabase-js';
+
+export const selectedProduct = writable(null);
+
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5ZnlsdXd2aXFzaG9zanRpZ3d6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1MzQzNTEsImV4cCI6MjA1ODExMDM1MX0.GmqrtN6tBMOY4Mcz5OoxPN0cG0CNqE4Wu4j4-8Mm0F0";
+const supabaseUrl = "https://hyfyluwviqshosjtigwz.supabase.co";
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);

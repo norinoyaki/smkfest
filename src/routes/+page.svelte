@@ -7,113 +7,85 @@
 			id: 1,
 			title: 'Alpukat Kocok',
 			image: '/assets/Alpukat_Kocok.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 2,
 			title: 'Blackcurrent Tea',
 			image: '/assets/Blackcurrent_Tea.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 3,
 			title: 'Caramel Coffee Latte',
 			image: '/assets/Caramel_Coffee_Latte.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 12000
 		},
 		{
 			id: 4,
 			title: 'Hazelnut Coffee Latte',
 			image: '/assets/Hazelnut_Coffee_Latte.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 12000
 		},
 		{
 			id: 5,
 			title: 'Hot Coffee Latte',
 			image: '/assets/Hot_Coffee_Latte.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 6,
 			title: 'Lemon Jasmine Tea',
 			image: '/assets/Lemon_Jasmine_Tea.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 7,
 			title: 'Lychee Squash',
 			image: '/assets/Lychee_Squash.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 8,
 			title: 'Lychee Tea',
 			image: '/assets/Lychee_Tea.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 9,
 			title: 'Mangga Kocok',
 			image: '/assets/Mangga_Kocok.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 10,
 			title: 'Manggo Squash',
 			image: '/assets/Manggo_Squash.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 11,
 			title: 'Manggo Tea',
 			image: '/assets/Manggo_Tea.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 12,
 			title: 'Orange Squash',
 			image: '/assets/Orange_Squash.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		},
 		{
 			id: 13,
 			title: 'Pineapple Smoothies',
 			image: '/assets/Pineapple_Smoothies.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 12000
 		},
 		{
 			id: 14,
 			title: 'Strawberry Tea',
 			image: '/assets/Strawberry_Tea.jpeg',
-			small: 8000,
-			medium: 12000,
-			large: 16000
+			price: 10000
 		}
 	];
 
@@ -241,9 +213,7 @@
 					aria-labelledby={`title-${item.id}`}
 					data-title={item.title}
 					data-image={item.image}
-					data-small={item.small}
-					data-medium={item.medium}
-					data-large={item.large}
+					data-price={item.price}
 					onmousedown={startDragging}
 					onmouseup={stopDragging}
 					onmousemove={moveDragging}

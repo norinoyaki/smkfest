@@ -1,20 +1,41 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { supabase } from '$lib/supabase';
+
+	import { browser } from '$app/environment';
+
+	let supabase: any;
+
+	if (browser) {
+		import('$lib/supabase').then((module) => {
+			supabase = module.supabase;
+			fetchOrders(); // Ensure orders are fetched AFTER supabase is initialized
+		});
+	}
 
 	let pesanan: any = [];
 
 	onMount(async () => {
-		await fetchOrders();
+		while (!supabase) {
+			await new Promise((resolve) => setTimeout(resolve, 100)); // Wait until supabase is loaded
+		}
 
-		// Listen for database changes in real-time
-		supabase
-			.channel('orders')
-			.on('postgres_changes', { event: '*', schema: 'public', table: 'pesanan' }, fetchOrders)
-			.subscribe();
+		try {
+			await fetchOrders();
+			supabase
+				.channel('orders')
+				.on('postgres_changes', { event: '*', schema: 'public', table: 'pesanan' }, fetchOrders)
+				.subscribe();
+		} catch (e) {
+			console.log(e);
+		}
 	});
 
 	async function fetchOrders() {
+		if (!supabase) {
+			console.warn('Supabase is not initialized yet!');
+			return;
+		}
+
 		const { data, error } = await supabase
 			.from('pesanan')
 			.select('*')
