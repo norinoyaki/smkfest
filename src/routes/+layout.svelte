@@ -12,7 +12,7 @@
 {/if}
 
 <!-- Main Content -->
-<div class="relative z-10">
+<div class="relative">
 	{@render children()}
 </div>
 
